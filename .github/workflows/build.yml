@@ -6,8 +6,8 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  sonarqube-10_7_0-developer:
-    runs-on: ubuntu-latest
+  build:
+    name: Build
     services:
       sonarqube:
        image: sonarqube:10.7.0-developer
@@ -22,9 +22,6 @@ jobs:
          --health-interval 10s
          --health-timeout 5s
          --health-retries 10
-
-  build:
-    name: Build
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
